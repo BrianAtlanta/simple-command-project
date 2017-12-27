@@ -7,11 +7,23 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
+/**
+ * @author brian
+ *
+ */
 public class BasicDriveTrain extends Subsystem {
 
 	private RobotDrive robotDrive;
 	private Command defaultCommand;
 	
+	/**
+	 * Constructor used when on robot
+	 * 
+	 * @param leftFrontCanId
+	 * @param leftRearCanId
+	 * @param rightFrontCanId
+	 * @param rightRearCanId
+	 */
 	public BasicDriveTrain(int leftFrontCanId, int leftRearCanId, int rightFrontCanId, int rightRearCanId) {
 		
 		CANTalon leftFrontMotor = new CANTalon(leftFrontCanId);
@@ -22,6 +34,11 @@ public class BasicDriveTrain extends Subsystem {
 	
 	}
 	
+	/**
+	 * Unit Test Constructor
+	 * Used to pass in FakeRobotDrive to test.
+	 * @param robotDrive
+	 */
 	public BasicDriveTrain(RobotDrive robotDrive) {
 		this.robotDrive = robotDrive;
 	}
@@ -42,7 +59,7 @@ public class BasicDriveTrain extends Subsystem {
 	}
 
 	public void drive(double power) {
-		robotDrive.setLeftRightMotorOutputs(power, power);
+		robotDrive.setLeftRightMotorOutputs(power, -power);
 		
 	}
 
