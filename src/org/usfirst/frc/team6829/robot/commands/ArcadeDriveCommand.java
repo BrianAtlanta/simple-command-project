@@ -35,12 +35,7 @@ public class ArcadeDriveCommand extends Command {
         this.driveTrain = driveTrain;
         this.driverJoyStick = driverJoystick;
         requires(this.driveTrain);
-        
     }
-    
-    
-    
-
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -48,7 +43,6 @@ public class ArcadeDriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	   	
     	double driverStickRawAxis = driverJoyStick.getRawAxis(THROTTLE_AXIS);    	
     	
     	double driveTrainPower = defaultTransform.transform(driverStickRawAxis);
@@ -58,7 +52,6 @@ public class ArcadeDriveCommand extends Command {
     	}
    	
     	driveTrain.drive(driveTrainPower);
-
     }
 
     // Make this return true when this Command no longer needs to run execute()

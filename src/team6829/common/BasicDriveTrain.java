@@ -24,14 +24,15 @@ public class BasicDriveTrain extends Subsystem {
 	 * @param rightFrontCanId
 	 * @param rightRearCanId
 	 */
+
 	public BasicDriveTrain(int leftFrontCanId, int leftRearCanId, int rightFrontCanId, int rightRearCanId) {
 		
 		CANTalon leftFrontMotor = new CANTalon(leftFrontCanId);
 		CANTalon leftRearMotor = new CANTalon(leftRearCanId);
 		CANTalon rightRearMotor  = new CANTalon(rightFrontCanId);
-		CANTalon righFrontMotor = new CANTalon(rightRearCanId);
-		robotDrive = new RobotDrive(leftFrontMotor, leftRearMotor, rightRearMotor, righFrontMotor);
-	
+		CANTalon rightFrontMotor = new CANTalon(rightRearCanId);
+		robotDrive = new RobotDrive(leftFrontMotor, leftRearMotor, rightRearMotor, rightFrontMotor);
+		
 	}
 	
 	/**
@@ -43,14 +44,15 @@ public class BasicDriveTrain extends Subsystem {
 		this.robotDrive = robotDrive;
 	}
 	
-	public void setDefaultCommand(Command defaultCommand) {
+	
+	public void setCommandDefault(Command defaultCommand) {
 		// TODO Auto-generated method stub
 		this.defaultCommand = defaultCommand;
 	}
 
 	public void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		setDefaultCommand(defaultCommand);
+		setDefaultCommand(this.defaultCommand);
 	}
 
 	public void drive(double throttlePower, double turnPower) {

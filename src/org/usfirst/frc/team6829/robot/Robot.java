@@ -42,11 +42,11 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		
+
+		System.out.println("Robot init started");
 		initializeSkynet();
 		displayDriverStatioAutonOptions();
-		
-		
+		System.out.println("Robot init fin");
 		
 	}
 
@@ -128,10 +128,10 @@ public class Robot extends IterativeRobot {
 
 	private void initializeSkynet() {
 		
-		
 		driveTrain = new BasicDriveTrain(robotMap.leftFrontMotor, robotMap.leftRearMotor, robotMap.rightFrontMotor, robotMap.rightReatMotor);
 		arcadeDriveCommand = new ArcadeDriveCommand(oi.driverJoystick, driveTrain, defaultDriveTrainTransform, alternateDriveTrainTransform, oi.AXIS_LEFT_STICK_Y, oi.AXIS_RIGHT_STICK_X, oi.AXIS_RIGHT_TRIGGER);
-		driveTrain.setDefaultCommand(arcadeDriveCommand);
+		driveTrain.setCommandDefault(arcadeDriveCommand);
+
 	}
 	
 	private void displayDriverStatioAutonOptions() {
